@@ -30,7 +30,6 @@ struct ScratchView: View {
                             dismiss()
                         case .failure(let error):
                             print("Scratch failed: \(error.localizedDescription)")
-                        
                         }
                     }
                 }
