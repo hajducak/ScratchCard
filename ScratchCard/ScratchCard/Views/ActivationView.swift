@@ -18,11 +18,19 @@ struct ActivationView: View {
     @State private var errorMessage = ""
     
     private var code: String? {
-        if case .scratched(let code) = cardState {
+        switch cardState {
+        case .scratched(let code), .activated(let code):
             return code
-        } else if case .activated(let code) = cardState {
-            return code
-        } else { return nil }
+        default:
+            return nil
+        }
+    }
+    
+    private var canActivate: Bool {
+        if case .scratched = cardState {
+            return true
+        }
+        return false
     }
     
     init(
@@ -44,7 +52,7 @@ struct ActivationView: View {
                     .font(.headline)
                 
                 if viewModel.isActivating {
-                    ProgressView("Activationg...")
+                    ProgressView("Activating...")
                 } else {
                     Button("Activate Card") {
                         Task.detached(priority: .userInitiated) {
@@ -64,11 +72,12 @@ struct ActivationView: View {
                             }
                         }
                     }
+                    .disabled(!canActivate)
                     .buttonStyle(.borderedProminent)
                     .frame(height: 48)
                 }
             } else {
-                Text("No scratched cade available")
+                Text("No scratched code available")
                     .foregroundColor(.gray)
             }
         }

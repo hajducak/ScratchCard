@@ -56,7 +56,13 @@ final class ActivationServiceTests: XCTestCase {
             _ = try await sut.activate(code: "test-code")
             XCTFail("Should throw ActivationError.activationFailed")
         } catch let error as ActivationError {
-            XCTAssertEqual(error, .activationFailed)
+            let errorIsactivationFailed = {
+                switch error {
+                case .activationFailed: return true
+                default: return false
+                }
+            }()
+            XCTAssertTrue(errorIsactivationFailed)
         } catch {
             XCTFail("Wrong error type")
         }
