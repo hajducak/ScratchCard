@@ -14,19 +14,11 @@
 			remoteGlobalIDString = 52B180662EB8C4E40049CF2F;
 			remoteInfo = ScratchCard;
 		};
-		52B180822EB8C4E50049CF2F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 52B1805F2EB8C4E40049CF2F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52B180662EB8C4E40049CF2F;
-			remoteInfo = ScratchCard;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		52B180672EB8C4E40049CF2F /* ScratchCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScratchCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B180772EB8C4E50049CF2F /* ScratchCardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScratchCardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		52B180812EB8C4E50049CF2F /* ScratchCardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScratchCardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +30,6 @@
 		52B1807A2EB8C4E50049CF2F /* ScratchCardTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ScratchCardTests;
-			sourceTree = "<group>";
-		};
-		52B180842EB8C4E50049CF2F /* ScratchCardUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScratchCardUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -62,13 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		52B1807E2EB8C4E50049CF2F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -77,7 +57,6 @@
 			children = (
 				52B180692EB8C4E40049CF2F /* ScratchCard */,
 				52B1807A2EB8C4E50049CF2F /* ScratchCardTests */,
-				52B180842EB8C4E50049CF2F /* ScratchCardUITests */,
 				52B180682EB8C4E40049CF2F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +66,6 @@
 			children = (
 				52B180672EB8C4E40049CF2F /* ScratchCard.app */,
 				52B180772EB8C4E50049CF2F /* ScratchCardTests.xctest */,
-				52B180812EB8C4E50049CF2F /* ScratchCardUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,29 +118,6 @@
 			productReference = 52B180772EB8C4E50049CF2F /* ScratchCardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		52B180802EB8C4E50049CF2F /* ScratchCardUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 52B180912EB8C4E50049CF2F /* Build configuration list for PBXNativeTarget "ScratchCardUITests" */;
-			buildPhases = (
-				52B1807D2EB8C4E50049CF2F /* Sources */,
-				52B1807E2EB8C4E50049CF2F /* Frameworks */,
-				52B1807F2EB8C4E50049CF2F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				52B180832EB8C4E50049CF2F /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				52B180842EB8C4E50049CF2F /* ScratchCardUITests */,
-			);
-			name = ScratchCardUITests;
-			packageProductDependencies = (
-			);
-			productName = ScratchCardUITests;
-			productReference = 52B180812EB8C4E50049CF2F /* ScratchCardUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,10 +132,6 @@
 						CreatedOnToolsVersion = 16.1;
 					};
 					52B180762EB8C4E50049CF2F = {
-						CreatedOnToolsVersion = 16.1;
-						TestTargetID = 52B180662EB8C4E40049CF2F;
-					};
-					52B180802EB8C4E50049CF2F = {
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = 52B180662EB8C4E40049CF2F;
 					};
@@ -202,7 +153,6 @@
 			targets = (
 				52B180662EB8C4E40049CF2F /* ScratchCard */,
 				52B180762EB8C4E50049CF2F /* ScratchCardTests */,
-				52B180802EB8C4E50049CF2F /* ScratchCardUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +166,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		52B180752EB8C4E50049CF2F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		52B1807F2EB8C4E50049CF2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,13 +189,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		52B1807D2EB8C4E50049CF2F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -260,11 +196,6 @@
 			isa = PBXTargetDependency;
 			target = 52B180662EB8C4E40049CF2F /* ScratchCard */;
 			targetProxy = 52B180782EB8C4E50049CF2F /* PBXContainerItemProxy */;
-		};
-		52B180832EB8C4E50049CF2F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 52B180662EB8C4E40049CF2F /* ScratchCard */;
-			targetProxy = 52B180822EB8C4E50049CF2F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -484,40 +415,6 @@
 			};
 			name = Release;
 		};
-		52B180922EB8C4E50049CF2F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FMH4876MKB;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hajducak.ScratchCardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ScratchCard;
-			};
-			name = Debug;
-		};
-		52B180932EB8C4E50049CF2F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FMH4876MKB;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hajducak.ScratchCardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ScratchCard;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -544,15 +441,6 @@
 			buildConfigurations = (
 				52B1808F2EB8C4E50049CF2F /* Debug */,
 				52B180902EB8C4E50049CF2F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		52B180912EB8C4E50049CF2F /* Build configuration list for PBXNativeTarget "ScratchCardUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				52B180922EB8C4E50049CF2F /* Debug */,
-				52B180932EB8C4E50049CF2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

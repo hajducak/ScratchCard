@@ -2,16 +2,19 @@
 //  ScratchCardApp.swift
 //  ScratchCard
 //
-//  Created by MacBook Pro on 03/11/2025.
+//  Created by Marek Hajdučák on 03/11/2025.
 //
 
 import SwiftUI
 
 @main
 struct ScratchCardApp: App {
+    @StateObject private var mainViewModel = MainViewModel(container: AppContainer.shared)
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                MainView(viewModel: mainViewModel)
+            }
         }
     }
 }

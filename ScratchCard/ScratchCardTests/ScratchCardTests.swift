@@ -2,35 +2,32 @@
 //  ScratchCardTests.swift
 //  ScratchCardTests
 //
-//  Created by MacBook Pro on 03/11/2025.
+//  Created by Marek Hajdučák on 03/11/2025.
 //
 
 import XCTest
 @testable import ScratchCard
 
 final class ScratchCardTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testInitialState_IsUnscratched() {
+        let card = ScratchCard()
+        XCTAssertEqual(card.state, .unscratched)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testEquatable_WorksCorrectly() {
+        let card1 = ScratchCard(state: .unscratched)
+        let card2 = ScratchCard(state: .unscratched)
+        XCTAssertEqual(card1, card2)
+        
+        let card3 = ScratchCard(state: .scratched(code: "123"))
+        XCTAssertNotEqual(card1, card3)
     }
+}
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+final class ScratchCardStateTests: XCTestCase {
+    func testStateEquality() {
+        XCTAssertEqual(ScratchCardState.unscratched, .unscratched)
+        XCTAssertEqual(ScratchCardState.scratched(code: "A"), .scratched(code: "A"))
+        XCTAssertNotEqual(ScratchCardState.scratched(code: "A"), .scratched(code: "B"))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
