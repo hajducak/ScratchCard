@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct ScratchCardApp: App {
+    @StateObject private var mainViewModel = MainViewModel(container: AppContainer.shared)
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                // MainView(viewModel: mainViewModel)
+            }
         }
     }
 }
