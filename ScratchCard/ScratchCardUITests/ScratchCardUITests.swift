@@ -2,7 +2,7 @@
 //  ScratchCardUITests.swift
 //  ScratchCardUITests
 //
-//  Created by MacBook Pro on 03/11/2025.
+//  Created by Marek Hajdučák on 03/11/2025.
 //
 
 import XCTest
