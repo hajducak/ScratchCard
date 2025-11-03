@@ -17,7 +17,7 @@ final class ScratchViewModel: ObservableObject {
         self.scratchService = scratchService
     }
     
-    func sratScratching(onComplete: @escaping (Result<String, Error>) -> Void) {
+    func startScratching(onComplete: @escaping (Result<String, Error>) -> Void) {
         isScratching = true
         task = Task {
             do {

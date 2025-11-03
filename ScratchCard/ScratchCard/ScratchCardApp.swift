@@ -13,7 +13,7 @@ struct ScratchCardApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                // MainView(viewModel: mainViewModel)
+                MainView(viewModel: mainViewModel)
             }
         }
     }

@@ -7,14 +7,22 @@
 
 import Foundation
 
-final class AppContainer {
+protocol AppContainerProtocol {
+    var scratchService: ScratchServiceProtocol { get }
+    var activationService: ActivationServiceProtocol { get }
+}
+
+final class AppContainer: AppContainerProtocol {
     static let shared = AppContainer()
-    
+
     let scratchService: ScratchServiceProtocol
     let activationService: ActivationServiceProtocol
-    
-    init() {
-        self.scratchService = ScratchService()
-        self.activationService = ActivationService()
+
+    init(
+        scratchService: ScratchServiceProtocol = ScratchService(),
+        activationService: ActivationServiceProtocol = ActivationService()
+    ) {
+        self.scratchService = scratchService
+        self.activationService = activationService
     }
 }
