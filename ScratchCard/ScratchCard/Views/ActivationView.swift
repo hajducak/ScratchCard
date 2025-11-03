@@ -14,6 +14,9 @@ struct ActivationView: View {
     let onActivated: (String) -> Void
     let onError: (String) -> Void
     
+    @State private var showErrorAlert = false
+    @State private var errorMessage = ""
+    
     private var code: String? {
         if case .scratched(let code) = cardState {
             return code
@@ -22,7 +25,12 @@ struct ActivationView: View {
         } else { return nil }
     }
     
-    init(viewModel: ActivationViewModel, cardState: ScratchCardState, onActivated: @escaping (String) -> Void, onError: @escaping (String) -> Void) {
+    init(
+        viewModel: ActivationViewModel,
+        cardState: ScratchCardState,
+        onActivated: @escaping (String) -> Void,
+        onError: @escaping (String) -> Void
+    ) {
         self.viewModel = viewModel
         self.cardState = cardState
         self.onActivated = onActivated
@@ -39,14 +47,19 @@ struct ActivationView: View {
                     ProgressView("Activationg...")
                 } else {
                     Button("Activate Card") {
-                        Task {
-                            await viewModel.activate(code: code) { result in
-                                switch result {
-                                case .success:
+                        Task.detached(priority: .userInitiated) {
+                            do {
+                                try await viewModel.activate(code: code)
+                                await MainActor.run {
                                     onActivated(code)
                                     dismiss()
-                                case .failure(let error):
-                                    onError(error.localizedDescription)
+                                }
+                            } catch {
+                                let message = error.localizedDescription
+                                await MainActor.run {
+                                    errorMessage = message
+                                    showErrorAlert = true
+                                    onError(message)
                                 }
                             }
                         }
@@ -60,6 +73,13 @@ struct ActivationView: View {
             }
         }
         .padding()
-                .navigationTitle("Activation")
+        .navigationTitle("Activation")
+        .alert("Activation Failed", isPresented: $showErrorAlert) {
+            Button("OK", role: .cancel) {
+                dismiss()
+            }
+        } message: {
+            Text(errorMessage)
+        }
     }
 }

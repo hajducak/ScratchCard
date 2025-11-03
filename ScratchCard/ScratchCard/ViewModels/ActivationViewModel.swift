@@ -9,33 +9,20 @@ import Foundation
 
 @MainActor
 final class ActivationViewModel: ObservableObject {
-    @Published var isActivating: Bool = false
+    @Published var isActivating = false
     private let activationService: ActivationServiceProtocol
-    
+
     init(activationService: ActivationServiceProtocol) {
         self.activationService = activationService
     }
-    
-    func activate(code: String, onComplete: @escaping (Result<Void, Error>) -> Void) async {
+
+    func activate(code: String) async throws {
         isActivating = true
-        
-        Task {
-            do {
-                let success = try await activationService.activate(code: code)
-                
-                await MainActor.run {
-                    self.isActivating = false
-                    if success {
-                        onComplete(.success(()))
-                    }
-                }
-            } catch {
-                await MainActor.run {
-                    self.isActivating = false
-                    onComplete(.failure(error))
-                }
-            }
+        defer { isActivating = false }
+
+        let success = try await activationService.activate(code: code)
+        guard success else {
+            throw NSError(domain: "Activation", code: -1, userInfo: [NSLocalizedDescriptionKey: "Activation failed"])
         }
-        
     }
 }
